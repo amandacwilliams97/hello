@@ -9,9 +9,14 @@ require_once ('vendor/autoload.php');
 #create an instance of the Base class
 $f3 = Base::instance();
 
+#Turn on Fat-Free error reporting
+$f3->set('DEBUG', 3);
+
 #define a default route
 $f3->route('GET /', function() {
-    echo '<h1>Hello World!</h1>';
+    //echo '<h1>Hello World!</h1>';
+    $view = new View;
+    echo $view->render('views/home-page.html');
 });
 
 #run fat free
